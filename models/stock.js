@@ -7,8 +7,9 @@ const stockSchema = new mongoose.Schema(
         slug: { type: "String", unique: true, lowercase: true, index: true},
         sku: { type: "String", required: "Sku is required"},
         value: { type: "Number", default: 0},
-        category: { type: ObjectId, ref: Category },
-        store: { type: ObjectId, ref: Store }
+        category: { type: ObjectId, ref: "Category" },
+        store: { type: ObjectId, ref: "Store" },
+        status: { type: String, default: "Active", enum: ["Active", "Inactive"],}
     },
     { timestamps: true }
 );
